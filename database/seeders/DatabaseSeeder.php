@@ -10,6 +10,7 @@ use App\Models\Tukang;
 use App\Models\Layanan;
 use App\Models\Kecamatan;
 use Illuminate\Database\Seeder;
+Use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -44,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'Yanu',
             'email' => 'yanu@gmail.com',
             'password' => bcrypt('1234567'),
-            'role_id' => '1'
+            'role_id' => '2'
             ]);
             
             User::create([
