@@ -59,7 +59,8 @@ class DashboardPesanController extends Controller
     {
 
         $idUser = auth()->user()->id;
-        $post = Order::where('tukang_id', $idUser)->get();
+        $nama = auth()->user()->username;
+        $post = Order::where('namatukang', $nama)->get();
         $user = Order::where('user_id', $idUser)->get();
 
         // dd($post);

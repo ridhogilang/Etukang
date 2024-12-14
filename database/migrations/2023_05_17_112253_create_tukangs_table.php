@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->foreignId('kecamatan_id');
             $table->string('deskripsi');
+            $table->string('lokasi')->nullable();
             $table->timestamps();
         });
     }

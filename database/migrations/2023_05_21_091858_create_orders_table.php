@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('tanggal');
             $table->text('kerusakan');
             $table->text('invoice');
+            $table->boolean('otw')->default(false);
+            $table->boolean('selesai')->default(false);
             $table->timestamps();
         });
     }

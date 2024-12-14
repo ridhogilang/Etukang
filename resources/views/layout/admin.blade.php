@@ -5,6 +5,8 @@
     <title>Etukang | {{ $title }} </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <link rel="icon" href="{{ asset('user/images/icon.png') }}" type="image/x-icon">
     <!-- VENDOR CSS -->

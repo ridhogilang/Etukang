@@ -36,8 +36,11 @@ Route::controller(AdminController::class)->group(function() {
 });
 
 Route::get('tukang', [TukangController::class, 'index']);
+Route::get('api/layanan-tukang', [TukangController::class, 'getLayananWithTukang']);
 Route::get('tukang/{slug}', [TukangController::class, 'order'])->middleware('auth');
 Route::post('order', [TukangController::class, 'store'])->middleware('auth');
+Route::post('/order/{id}/selesai', [TukangController::class, 'updateSelesai'])->middleware('auth');
+Route::post('/order/{id}/otw', [TukangController::class, 'updateOtw'])->middleware('auth');
 
 Route::get('daftar', [DaftarTukangController::class, 'index']);
 Route::get('form', [DaftarTukangController::class, 'karir'])->middleware('auth');

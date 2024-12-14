@@ -22,6 +22,7 @@ class Tukang extends Model
         'alamat',
         'kecamatan_id',
         'deskripsi',
+        'lokasi',
     ];
 
     public function order()
@@ -31,8 +32,8 @@ class Tukang extends Model
     
     public function jenislayanan()
     {
-        return $this->belongsTo(Layanan::class);
-    }
+        return $this->belongsTo(Layanan::class, 'jenislayanan_id');
+    }    
 
     public function user()
     {

@@ -47,9 +47,7 @@ class TukangController extends Controller
             "besi" => Tukang::where('jenislayanan_id', '6')->paginate(3),
             "listrik" => Tukang::where('jenislayanan_id', '7')->get(),
             "pipa" => Tukang::where('jenislayanan_id', '8')->get(),
-            
         ]);
-        
     }
 
     public function order($slug)
@@ -59,7 +57,7 @@ class TukangController extends Controller
         $randomNumber = mt_rand(1000000000000000, 9999999999999999);
 
 
-        return view('user.order' , [
+        return view('user.order', [
             "title" => "Order Tukang",
             "post" => Tukang::find($slug),
             "kecamatan" => $kecamatan,
@@ -93,4 +91,51 @@ class TukangController extends Controller
 
         return redirect('/invoice')->with('status', 'success');
     }
+    public function getLayananWithTukang()
+    {
+        // Ambil semua tukang dan layanan terkait
+        $tukang = Tukang::with('jenislayanan')->get();
+
+        // Kelompokkan tukang berdasarkan jenis layanan
+        $layananGrouped = [];
+
+        // Mengelompokkan tukang berdasarkan jenis layanan
+        foreach ($tukang as $item) {
+            // Pastikan jenislayanan ada dan valid
+            if ($item->jenislayanan) {
+                $layananJenis = $item->jenislayanan->jenis; // Ambil jenis layanan
+                if (!isset($layananGrouped[$layananJenis])) {
+                    $layananGrouped[$layananJenis] = [];
+                }
+                $layananGrouped[$layananJenis][] = $item;
+            }
+        }
+
+        // Kirim data yang telah dikelompokkan ke frontend
+        return response()->json($layananGrouped);
+    }
+
+
+    public function updateOtw($id)
+    {
+        $order = Order::find($id);
+        if ($order && $order->otw == 0 && $order->selesai == 0) {
+            $order->otw = 1;
+            $order->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false]);
+    }
+    
+    public function updateSelesai($id)
+    {
+        $order = Order::find($id);
+        if ($order && $order->otw == 1 && $order->selesai == 0) {
+            $order->selesai = 1;
+            $order->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false]);
+    }
+    
 }

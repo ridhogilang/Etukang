@@ -286,13 +286,6 @@
                                                 <div class="progress-step is-active">
                                                     <div class="step-line"></div> <!-- Garis Progress -->
                                                     <div class="step-count">
-                                                        <i class="fas fa-credit-card"></i> <!-- Ikon untuk Pembayaran -->
-                                                    </div>
-                                                    <div class="step-description">Pembayaran</div>
-                                                </div>
-                                                <div class="progress-step">
-                                                    <div class="step-line"></div> <!-- Garis Progress -->
-                                                    <div class="step-count">
                                                         <i class="fas fa-truck"></i>
                                                         <!-- Ikon untuk Tukang Menuju Lokasi -->
                                                     </div>
@@ -304,6 +297,13 @@
                                                         <i class="fas fa-hammer"></i> <!-- Ikon untuk Pengerjaan -->
                                                     </div>
                                                     <div class="step-description">Pengerjaan</div>
+                                                </div>
+                                                <div class="progress-step">
+                                                    <div class="step-line"></div> <!-- Garis Progress -->
+                                                    <div class="step-count">
+                                                        <i class="fas fa-credit-card"></i> <!-- Ikon untuk Pembayaran -->
+                                                    </div>
+                                                    <div class="step-description">Pembayaran</div>
                                                 </div>
                                                 <div class="progress-step">
                                                     <div class="step-line"></div> <!-- Garis Progress -->
@@ -342,8 +342,8 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>1</td>
-                                                                <td>Invoice Paid</td>
-                                                                <td>Waiting for payment..</td>
+                                                                <td>Menunggu Tukang</td>
+                                                                <td>Waiting for tukang..</td>
                                                                 <td><span class="badge badge-default">Panding</span></td>
                                                             </tr>
                                                         </tbody>

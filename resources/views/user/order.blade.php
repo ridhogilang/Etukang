@@ -59,8 +59,8 @@
                             <input value="{{ old('jenislayanan', $post->jenislayanan->id) }}" id="jenislayanan_id" name="jenislayanan_id" type="hidden">
                         </div>
                         <div class="col-md-6">
-                            <p>Kecamatan</p>
-                            <input value="{{ old('kecamatan', $post->kecamatan->kecamatan) }}" id="kecamatan" name="kecamatan" placeholder="kecamatan_id" type="text" class="form-control form-value" required readonly>
+                            <p>Kabupaten</p>
+                            <input value="{{ old('kabupaten', $post->kecamatan->kabupaten) }}" id="kecamatan" name="kabupaten" placeholder="kabupaten" type="text" class="form-control form-value" required readonly>
                             <input value="{{ $invoice }}" id="invoice" name="invoice" type="hidden">
 
                         </div>
@@ -91,14 +91,14 @@
                         <div class="col-md-6">
                             <input value="{{ auth()->user()->id }}" id="user_id" name="user_id" type="hidden">
                             <p>Nama Pemesan</p>
-                            <input id="nama" name="nama" placeholder="Nama Pemesan" type="text" class="form-control form-value" required>
+                            <input id="nama" name="nama" placeholder="Nama Pemesan" value="{{ auth()->user()->username }}" type="text" class="form-control form-value" required>
                         </div>
                         <div class="col-md-4">
-                            <p>Kecamatan</p>
+                            <p>Kabupaten</p>
                             <select name="kecamatan_id" id="kecamatan_id" class="form-control form-value">
-                                <option value="">Pilih Kecamatan</option>                                    
+                                <option value="">Pilih Kabupaten</option>                                    
                                 @foreach ($kecamatan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->kecamatan }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->kabupaten }}</option>
                                 @endforeach
                             </select>
                         </div>
